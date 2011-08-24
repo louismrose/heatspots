@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lat:</b>
+  <%= @heatspot.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @heatspot.long %>
+</p>
+
+<p>
+  <b>Strength:</b>
+  <%= @heatspot.strength %>
+</p>
+
+
+<%= link_to 'Edit', edit_heatspot_path(@heatspot) %> |
+<%= link_to 'Back', heatspots_path %>

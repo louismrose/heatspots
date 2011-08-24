@@ -1,0 +1,2 @@
+module HeatspotsHelper
+end

@@ -1,0 +1,29 @@
+<h1>Listing heatspots</h1>
+
+<table>
+  <tr>
+    <th>Lat</th>
+    <th>Long</th>
+    <th>Strength</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @heatspots.each do |heatspot| %>
+  <tr>
+    <td><%= heatspot.lat %></td>
+    <td><%= heatspot.long %></td>
+    <td><%= heatspot.strength %></td>
+    <td><%= link_to 'Show', heatspot %></td>
+    <td><%= link_to 'Edit', edit_heatspot_path(heatspot) %></td>
+    <td><%= link_to 'Destroy', heatspot, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Heatspot', new_heatspot_path %>
+
+<div id="map_canvas" style="wdith:100%"></div>
