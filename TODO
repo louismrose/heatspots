@@ -1,5 +1,2 @@
-- Turn back on forgery protection!
--- Update README with new POST command
-
 - Deploy to Heroku (I think the DB needs to be migrated)
 -- Test that heatmaps API is working once deployed
