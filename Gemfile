@@ -7,6 +7,8 @@ gem 'rails', '3.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+gem 'soap4r', :git => 'https://github.com/mumboe/soap4r.git', :branch => 'soap4r-gemspec'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

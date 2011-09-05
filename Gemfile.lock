@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/mumboe/soap4r.git
+  revision: c4f45c1623d92fcd4720d3d864433850b99b0fe0
+  branch: soap4r-gemspec
+  specs:
+    soap4r (1.5.8.3)
+      httpclient (>= 2.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -33,6 +41,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    httpclient (2.2.1)
     i18n (0.4.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -71,4 +80,5 @@ PLATFORMS
 
 DEPENDENCIES
   rails (= 3.0.0)
+  soap4r!
   sqlite3-ruby

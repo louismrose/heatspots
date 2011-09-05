@@ -32,10 +32,11 @@ var myData = null;
 $(function() {
 // create data
 myData = new Array();
+
 <% @heatspots.each do |heatspot| %>
- myData.push(<%=heatspot.lat%>);
- myData.push(<%=heatspot.long%>);
- myData.push(<%=heatspot.strength%>);
+  myData.push(<%=heatspot.lat%>);
+  myData.push(<%=heatspot.long%>);
+  myData.push(<%=heatspot.strength%>);
 <% end %>
 
 // configure HeatMapAPI
@@ -43,7 +44,7 @@ myHeatmap.Init(400, 300); // set at pixels for your map
 myHeatmap.SetBoost(0.8);
 myHeatmap.SetDecay(0); // see documentation
 myHeatmap.SetData(myData);
-//  myHeatmap.SetProxyURL('http://www.yourwebsite.com/proxy.php');
+myHeatmap.SetProxyURL('<%=@heatmap_proxy_url%>');
 
 // set up Google map, pass in the heatmap function
 var myLatlng = new google.maps.LatLng(53.29, -1.52);
@@ -59,5 +60,4 @@ google.maps.event.addListener(map, 'idle', function(event) {
 });
 </script>
 
-
-<div id="map_canvas" style="wdith:100%"></div>
+<div id="map_canvas" style="width:100%"></div>

@@ -1,6 +1,8 @@
 Heatspots::Application.routes.draw do
   resources :heatspots
 
+  match "heat_map_proxy" => 'heatspots#heat_map_proxy'
+  
   root :to => "heatspots#index"
 
   # The priority is based upon order of creation:
