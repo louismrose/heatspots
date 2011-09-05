@@ -1,0 +1,16 @@
+h1. Heatspots
+
+A super awesome app to display Twitter trends.
+
+
+h2. Supplying data to Heatspots
+
+Heatspots receives as input a set of triples (latitude, longitude, strength). A triple can be added to Heatspots by issuing an HTTP POST to either of the following paths:
+
+bc. /heatspots.xml
+/heatspots.json
+
+For example, the following curl command adds a triple at latitude=2, longitude=4, strength=8:
+
+bc. curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"heatspot":{"lat":2.0,"long":4.0,"strength":8.0}}' http://localhost:3000/heatspots.json 
+

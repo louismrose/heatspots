@@ -1,6 +1,2 @@
-
-- Figure out why posting isn't working (null lat, long and strength)
--- Turn back on forgery protection!
-
 - Deploy to Heroku (I think the DB needs to be migrated)
 -- Test that heatmaps API is working once deployed
