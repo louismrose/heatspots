@@ -1,7 +1,7 @@
 Heatspots::Application.routes.draw do
   resources :heatspots
 
-  match "heat_map_proxy" => 'heatspots#heat_map_proxy'
+  match "heat_map_proxy" => 'heat_map_proxy_requests#new'
   
   root :to => "heatspots#index"
 
