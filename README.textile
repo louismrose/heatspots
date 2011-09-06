@@ -12,6 +12,6 @@ bc. /heatmaps.xml
 
 For example, the following curl command adds a heatmap called Testing which contains two heatspots at latitude=2, longitude=4, strength=8 and latitude=1, longitude=2 and strength=3:
 
-bc. curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"heatmap":{"name":"First","heatspots_attributes":[{"lat":1.0,"long":2.0,"strength":3.0},{"lat":3.0,"long":4.0,"strength":5.0}]}}' http://localhost:3000/heatmaps.json 
+bc. curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"heatmap":{"name":"First","heatspots_attributes":[{"lat":2.0,"long":4.0,"strength":8.0},{"lat":1.0,"long":2.0,"strength":3.0}]}}' http://localhost:3000/heatmaps.json 
 
 
