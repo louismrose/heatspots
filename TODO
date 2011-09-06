@@ -1,2 +1,3 @@
-- Deploy to Heroku (I think the DB needs to be migrated)
--- Test that heatmaps API is working once deployed
+- Delete isn't working
+- Extract proxy to its own controller
+- Enmasse add and delete via datasets
