@@ -1,13 +1,11 @@
 class HeatmapsController < ApplicationController
+  respond_to :html, :xml, :json
+  
   # GET /heatmaps
   # GET /heatmaps.xml
   def index
     @heatmaps = Heatmap.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @heatmaps }
-    end
+    respond_with(@heatmaps)
   end
 
   # GET /heatmaps/1
@@ -16,42 +14,29 @@ class HeatmapsController < ApplicationController
     @heatmap = Heatmap.find(params[:id])
     @heatmap_proxy_url = "http://#{request.host}:#{request.port}/heat_map_proxy"
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @heatmap }
-    end
+    respond_with(@heatmap, :include => :heatspots)
   end
 
   # GET /heatmaps/new
   # GET /heatmaps/new.xml
   def new
     @heatmap = Heatmap.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @heatmap }
-    end
+    respond_with(@heatmap)
   end
 
   # GET /heatmaps/1/edit
   def edit
     @heatmap = Heatmap.find(params[:id])
+    respond_with(@heatmap)
   end
 
   # POST /heatmaps
   # POST /heatmaps.xml
   def create
     @heatmap = Heatmap.new(params[:heatmap])
-
-    respond_to do |format|
-      if @heatmap.save
-        format.html { redirect_to(@heatmap, :notice => 'Heatmap was successfully created.') }
-        format.xml  { render :xml => @heatmap, :status => :created, :location => @heatmap }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @heatmap.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Heatmap was successfully created.' if @heatmap.save
+    
+    respond_with(@heatmap)
   end
 
   # PUT /heatmaps/1
@@ -59,15 +44,9 @@ class HeatmapsController < ApplicationController
   def update
     @heatmap = Heatmap.find(params[:id])
 
-    respond_to do |format|
-      if @heatmap.update_attributes(params[:heatmap])
-        format.html { redirect_to(@heatmap, :notice => 'Heatmap was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @heatmap.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Heatmap was successfully updated.' if @heatmap.update_attributes(params[:heatmap])
+    
+    respond_with(@heatmap)
   end
 
   # DELETE /heatmaps/1
@@ -76,9 +55,6 @@ class HeatmapsController < ApplicationController
     @heatmap = Heatmap.find(params[:id])
     @heatmap.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(heatmaps_url) }
-      format.xml  { head :ok }
-    end
+    respond_with(@heatmap)
   end
 end
