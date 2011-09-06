@@ -1,4 +1,4 @@
-<%= form_for(@heatspot) do |f| %>
+<%= form_for([@heatmap, @heatspot]) do |f| %>
   <% if @heatspot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@heatspot.errors.count, "error") %> prohibited this heatspot from being saved:</h2>
@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.hidden_field :heatmap_id %>
 
   <div class="field">
     <%= f.label :lat %><br />

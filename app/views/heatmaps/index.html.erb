@@ -1,0 +1,23 @@
+<h1>Listing heatmaps</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @heatmaps.each do |heatmap| %>
+  <tr>
+    <td><%= heatmap.name %></td>
+    <td><%= link_to 'Show', heatmap %></td>
+    <td><%= link_to 'Edit', edit_heatmap_path(heatmap) %></td>
+    <td><%= link_to 'Destroy', heatmap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Heatmap', new_heatmap_path %>

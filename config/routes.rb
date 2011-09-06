@@ -1,9 +1,11 @@
 Heatspots::Application.routes.draw do
-  resources :heatspots
+  resources :heatmaps do
+    resources :heatspots, :except => [:index, :show]
+  end
 
   match "heat_map_proxy" => 'heat_map_proxy_requests#new'
   
-  root :to => "heatspots#index"
+  root :to => "heatmaps#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
